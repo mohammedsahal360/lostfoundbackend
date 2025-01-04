@@ -1,20 +1,20 @@
-// db.js
 const mysql = require('mysql2');
+require('dotenv').config(); // To load environment variables from .env file
 
 const connection = mysql.createConnection({
-    host: 'localhost', // Use 'localhost' as your host
-    user: 'root', // Replace with your MySQL username
-    password: 'Sahal@2005', // Replace with your MySQL password
-    database: 'lostfoundsystem', // Your database name
-    port: 3306, // Default MySQL port
+    host: process.env.RAILWAY_PRIVATE_DOMAIN,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQL_ROOT_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+    port: 3306
 });
 
 connection.connect((err) => {
     if (err) {
-        console.error('Error connecting to MySQL:', err);
+        console.error('Database connection failed:', err.stack);
         return;
     }
-    console.log('Connected to MySQL');
+    console.log('Connected to MySQL database.');
 });
 
 module.exports = connection;
