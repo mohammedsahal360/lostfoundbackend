@@ -176,7 +176,7 @@ app.post('/api/login', (req, res) => {
 
 // Serve the React app for any other route
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'lost found front end', 'index.html')); // Adjust if your index.html is in a different location
+    res.sendFile(path.join(__dirname, 'lost-found-frontend', 'index.html')); // Adjust if your index.html is in a different location
 });
 
 // Start the server
